@@ -16,5 +16,6 @@ class UserService:
 
     def eliminar_usuario(self, email):
         return self.repository.eliminar_usuario(User('', email, ''))
+    
     def obtener_todos_los_usuarios(self):
         return self.repository.obtener_todos_los_usuarios()

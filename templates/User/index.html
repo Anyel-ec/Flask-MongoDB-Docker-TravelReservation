@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,24 +12,31 @@
             margin: 0;
             padding: 20px;
         }
+
         h1 {
             color: #333;
         }
+
         #user-table {
             width: 100%;
             border-collapse: collapse;
         }
-        #user-table th, #user-table td {
+
+        #user-table th,
+        #user-table td {
             border: 1px solid #ddd;
             padding: 8px;
             text-align: left;
         }
+
         #user-table th {
             background-color: #f2f2f2;
         }
+
         #user-table tr:hover {
             background-color: #f2f2f2;
         }
+
         .btn {
             display: inline-block;
             padding: 8px 16px;
@@ -42,14 +50,17 @@
             cursor: pointer;
             border-radius: 4px;
         }
+
         .btn-edit {
             background-color: #008CBA;
         }
+
         .btn-delete {
             background-color: #f44336;
         }
     </style>
 </head>
+
 <body>
     <h1>Listado de Usuarios</h1>
     <button class="btn" onclick="window.location.href='/usuarios/nuevo'">Crear Nuevo Usuario</button>
@@ -67,21 +78,25 @@
                 <td>{{ usuario.username }}</td>
                 <td>{{ usuario.email }}</td>
                 <td>
-                    <button class="btn btn-edit" onclick="window.location.href='/usuarios/{{ usuario.email }}/editar'">Editar</button>
-                    <button class="btn btn-delete" onclick="eliminarUsuario('{{ usuario.email }}')">Eliminar</button>
+                    <button class="btn btn-edit"
+                        onclick="window.location.href='/usuarios/{{ usuario.email }}/editar'">Editar</button>
+                    <form method="POST" action="/usuarios/{{ usuario.email }}/eliminar" style="display:inline;">
+                        <button type="submit" class="btn btn-delete">Eliminar</button>
+                    </form>
                 </td>
             </tr>
             {% endfor %}
         </tbody>
-        
+
     </table>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             $('#user-table').DataTable();
         });
     </script>
 </body>
+
 </html>

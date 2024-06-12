@@ -1,11 +1,13 @@
 # app.py
 from flask import Flask, render_template, request, redirect, url_for, jsonify
+from app.controllers import ClientController
 from app.controllers.UserController import UserController
 from app.config.Environment import Environment
 
 app = Flask(__name__)
 environment = Environment()
 userController = UserController(environment)
+clientController = ClientController(environment)
 
 @app.route('/', methods=['GET', 'POST'])
 def inicio_sesion():
@@ -30,6 +32,10 @@ def eliminar_usuario(email):
 @app.route('/usuarios', methods=['GET'])
 def listar_usuarios():
     return userController.listar_todos_los_usuarios()
+
+@app.route('/clientes/nuevo', methods=['GET', 'POST'])
+def crear_cliente():
+    return userController.crear_usuario()
 
 if __name__ == '__main__':
     app.run(debug=True)

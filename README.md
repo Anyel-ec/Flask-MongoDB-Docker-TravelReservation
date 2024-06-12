@@ -148,6 +148,3 @@ Las contribuciones son bienvenidas. Por favor, abre un issue o envía un pull re
 ## Licencia
 
 Este proyecto está licenciado bajo los términos de la [MIT License](https://opensource.org/licenses/MIT).
-```
-
-Este `README.md` cubre los aspectos esenciales de tu proyecto, incluyendo la instalación, estructura del proyecto, endpoints disponibles y dependencias. Puedes ajustarlo según las necesidades específicas de tu proyecto.
